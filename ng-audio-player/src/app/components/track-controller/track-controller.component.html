@@ -1,0 +1,47 @@
+<div [hidden]=!load>
+  <div class="audio-controls" >
+    <span class="icon-left">
+      <svg class="icon" (click)="replay()" xmlns="http://www.w3.org/2000/svg" width="45" height="45" viewBox="0 0 24 24">
+        <path d="M11 18V6l-8.5 6 8.5 6zm.5-6l8.5 6V6l-8.5 6z"/>
+      </svg>
+    </span>
+  <span class="play" (click)="togglePlayer()">
+    <svg  class="icon" xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 512.00073 512.00073">
+      <path d="m256 0c-141.382812 0-256 114.617188-256 256 0 141.386719 114.617188 256 256 256 141.386719 0 256-114.613281 256-256-.167969-141.316406-114.683594-255.832031-256-256zm0 480c-123.710938 0-224-100.289062-224-224s100.289062-224 224-224 224 100.289062 224 224c-.132812 123.65625-100.34375 223.867188-224 224zm0 0"/>
+     
+      <g *ngIf="playing" >
+      <g class="pause">
+      <path  d="m375.871094 242.0625-160-90.496094c-7.691406-4.347656-17.453125-1.632812-21.800782 6.058594-1.355468 2.398438-2.070312 5.109375-2.070312 7.863281v181.023438c0 8.835937 7.164062 16 16 16 2.761719.003906 5.472656-.714844 7.871094-2.078125l160-90.496094c7.695312-4.34375 10.417968-14.101562 6.074218-21.796875-1.429687-2.542969-3.53125-4.644531-6.074218-6.078125zm-151.871094 77.011719v-126.144531l111.503906 63.070312zm0 0"/>
+      </g>
+      </g>
+    
+      <g *ngIf="!playing">
+          <g class="play">
+          <path  d="m208 368c-8.835938 0-16-7.164062-16-16v-192c0-8.835938 7.164062-16 16-16s16 7.164062 16 16v192c0 8.835938-7.164062 16-16 16zm0 0"/>
+          <path d="m304 368c-8.835938 0-16-7.164062-16-16v-192c0-8.835938 7.164062-16 16-16s16 7.164062 16 16v192c0 8.835938-7.164062 16-16 16zm0 0"/>
+          </g>
+      </g>
+
+    </svg>
+  </span>
+  <div class="icon-right">
+      <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="45" height="45" viewBox="0 0 24 24">
+        <path d="M4 18l8.5-6L4 6v12zm9-12v12l8.5-6L13 6z"/>
+      </svg>
+  </div>
+</div>
+
+<div class="progression">
+  <div class="audio-progress">
+    <p class="start" #start>{{ audioStartTime }}</p>
+  <span class="progress-bar" #progressBar>
+    <span class="progressing" #progressing></span>
+  </span>
+    <p class="stop" #stop>{{ audioStopTime }}</p>
+  </div>
+</div>
+</div>
+<div #loading [hidden]=load>
+    <!-- <img src="./../../../assets/loader2.gif" class="loader-img"  height="60"/> -->
+      <p class="loader">Loading... </p> 
+</div>

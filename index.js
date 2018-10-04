@@ -2,11 +2,10 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const expressMongoDB =  require('express-mongo-db');
 const app = express();
-const port = 3400;
+const port = process.env.PORT || 3400;
 require('dotenv').config();
 
 const tracks = require('./routes/api/tracks');
-
 
 // body-parser and mongoDB connection middleware to Music_Player database
 app.use(expressMongoDB(process.env.MONGODBCONNECTION))

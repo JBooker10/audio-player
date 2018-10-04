@@ -18,7 +18,7 @@ router.get('/library', (req, res) => {
 });
 
 // Retrieves a single audio file and its information in JSON format
-router.get('/track-info/:track_id', (req, res) => {
+router.get('/library/:track_id', (req, res) => {
     try {
         var track_id = new ObjectID(req.params.track_id);
     } catch(err) {
